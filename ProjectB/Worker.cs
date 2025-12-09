@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectB
 {
-    public class Worker : Person
+    public class Worker : Person, IInfo
     {
         public string? Position { get; set; }
 
@@ -101,6 +101,11 @@ namespace ProjectB
         public override string GetRole()
         {
             return "Worker";
+        }
+
+        public override string Info()
+        {
+            return "Worker " + Name + " " + Surname;
         }
     }
 }

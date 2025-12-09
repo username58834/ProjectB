@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjectB
 {
-    public abstract class Person
+    public abstract class Person: IInfo
     {
         static int counter  = 0;
         
@@ -45,6 +45,11 @@ namespace ProjectB
                 $"Date of birth: {DateOfBirth.ToString()}\n";
 
             return txt;
+        }
+
+        public virtual string Info()
+        {
+            return "Person " + Name + " " + Surname;
         }
     }
 }

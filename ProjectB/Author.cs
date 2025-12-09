@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectB
 {
-    public class Author : Person
+    public class Author : Person, IInfo
     {
         public string? Country;
 
@@ -30,6 +30,11 @@ namespace ProjectB
         public override string GetRole()
         {
             return "Author";
+        }
+
+        public override string Info()
+        {
+            return "Author " + Name + " " + Surname;
         }
     }
 }

@@ -9,6 +9,7 @@ namespace ProjectB
     public class Book : IInfo, ICloneable
     {
         static public int MaxLoanDays = 7;
+        static public int MaxRatingStars = 5;
 
         public string Title;
 
@@ -27,11 +28,11 @@ namespace ProjectB
 
         public bool IsCheckOut;
 
-        public Author Author;
+        public Author? Author;
 
         public DateTime? CheckOutDate = null;
 
-        public Book(string title, Genres[] genres, Author author, string? published = null)
+        public Book(string title, Genres[] genres, Author? author = null, string? published = null)
         {
             Title = title;
 
@@ -71,7 +72,11 @@ namespace ProjectB
 
         public string Info()
         {
-            return Title;
+            string[] genre = Genre
+                .Select(x => x.ToString())
+                .ToArray();
+
+            return "Book " + Title + $"\nGenre: {string.Join(", ", genre)}" + $"\nAuthor: {(Author != null ? Author.Name : "Unknown")}" + $"\nRating: {Rating}★";
         }
 
         public object Clone()

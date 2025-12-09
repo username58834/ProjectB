@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectB
 {
-    public class Member : Person
+    public class Member : Person, IInfo
     {
         public DateTime MemebershipDate { get; set; }
 
@@ -44,6 +44,11 @@ namespace ProjectB
         public override string GetRole()
         {
             return "Member";
+        }
+
+        public override string Info()
+        {
+            return "Member " + Name + " " + Surname;
         }
     }
 }
