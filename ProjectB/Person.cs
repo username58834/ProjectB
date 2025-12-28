@@ -14,7 +14,7 @@ namespace ProjectB
         public int ID;
         public string Name { get; set; }
         public string Surname { get; set; }
-        public DateTime? DateOfBirth { get; set; }
+        public DateTime? DateOfBirth { get; set; } = null;
         public Person(string name, string surname, string? dateOfBirth = null)
         {
             counter++;
@@ -42,7 +42,7 @@ namespace ProjectB
             txt = $"ID: {ID}\n" +
                 $"Name: {Name}\n" +
                 $"Surname: {Surname}\n" +
-                $"Date of birth: {DateOfBirth.ToString()}\n";
+                $"Date of birth: {DateOfBirth?.ToString("dd.MM.yyyy") ?? "Unknown"}\n";
 
             return txt;
         }

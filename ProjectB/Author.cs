@@ -8,9 +8,9 @@ namespace ProjectB
 {
     public class Author : Person, IInfo
     {
-        public string? Country;
+        public string? Country = null;
 
-        public string? Biography;
+        public string? Biography = null;
 
         public Author(string name, string surname, string? dateOfBirth = null, string? country = null, string? biography = null) : base(name, surname, dateOfBirth)
         {
@@ -22,8 +22,8 @@ namespace ProjectB
         {
             string txt = base.MakeInfoCard();
 
-            txt += $"Country: {Country}\n" +
-                $"Biography: {Biography}\n";
+            txt += $"Country: {Country ?? "Unknown"}\n" +
+                $"Biography: {Biography ?? "-"}\n";
 
             return txt;
         }

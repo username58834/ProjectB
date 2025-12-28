@@ -76,7 +76,7 @@ namespace ProjectB
                 .Select(x => x.ToString())
                 .ToArray();
 
-            return "Book " + Title + $"\nGenre: {string.Join(", ", genre)}" + $"\nAuthor: {(Author != null ? Author.Name : "Unknown")}" + $"\nRating: {Rating}★";
+            return "Book " + Title + $"\nGenre: {string.Join(", ", genre)}" + $"\nAuthor: {(Author != null ? Author.Name + " " + Author.Surname : "Unknown")}" + $"\nRating: {Rating}★" + $"\n\nIsCheckOut: {IsCheckOut}";
         }
 
         public object Clone()
